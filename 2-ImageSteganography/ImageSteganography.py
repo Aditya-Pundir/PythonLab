@@ -2,6 +2,7 @@ from steganocryptopy.steganography import Steganography
 
 
 def encrypt(key, image, data, location):
+    # Encrypts the key every time something is encoded
     Steganography.generate_key(key)
     encrypted = Steganography.encrypt(key, image, data)
     encrypted.save(location)
