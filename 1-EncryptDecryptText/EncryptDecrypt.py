@@ -1,19 +1,17 @@
-alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 "
+import base64
 
 
 def encrypt():
-    text = input("Enter your text:")
-    encrypted = ""
-    for char in text:
-        encrypted += alphabets[alphabets.index(char) + 21]
+    text = input("Enter your text:").encode("ascii")
+    encrypted_bytes = base64.b64encode(text)
+    encrypted = encrypted_bytes.decode("ascii")
     print("Encrypted Text: \"" + encrypted + "\"")
 
 
 def decrypt():
-    text = input("Enter your text:")
-    decrypted = ""
-    for char in text:
-        decrypted += alphabets[alphabets.index(char) - 21]
+    text = input("Enter your text:").encode("ascii")
+    decrypted_bytes = base64.b64decode(text)
+    decrypted = decrypted_bytes.decode("ascii")
     print("Decrypted Text: \"" + decrypted + "\"")
 
 
