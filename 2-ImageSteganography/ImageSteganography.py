@@ -8,8 +8,9 @@ def encrypt(key, image, data, location):
     encrypted.save(location)
 
 
-def decrypt(key, image):
-    print(Steganography.decrypt(key, image))
+def decrypt():
+    decrypted = Steganography.decrypt("key.txt", "liberty.jpeg")
+    print(decrypted)
 
 
 def start():
@@ -23,9 +24,9 @@ def start():
         location = input("Enter location to save image to:")
         encrypt(key, image, data, location)
     elif choice == 2:
-        image = input("Enter image location:")
-        key = input("Enter key location:")
-        decrypt(key, image)
+        # image = input("Enter image location:")
+        # key = input("Enter key location:")
+        decrypt()
     else:
         print("Enter a valid choice!")
 
